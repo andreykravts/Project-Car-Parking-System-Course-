@@ -7,6 +7,51 @@ public class CarHashSet implements CarSet{
     private static int INITIAL_CAPACITY=16;
     private Entry[] array = new Entry[INITIAL_CAPACITY];
     private int size=0;
+
+
+
+    //////////////////////////////////////////////////
+//    private Map<Car,Object> map = new HashMap<>();
+//    private Object obj=new Object();
+//
+//    @Override
+//    public boolean add(Car car) {
+//        if(map.containsKey(car)){
+//            return false;
+//        }else {
+//            map.put(car, obj);
+//            return true;
+//        }
+//    }
+//    @Override
+//    public boolean remove(Car car) {
+//        Object removed = map.remove(car, obj);
+//        return removed != null;
+//    }
+//
+//    @Override
+//    public boolean contain(Car car) {
+//        return map.containsKey(car);
+//    }
+//    @Override
+//    public int size() {
+//        return map.size();
+//    }
+//    @Override
+//    public void clear() {
+//        map.clear();
+//    }
+//
+//
+//    @Override
+//    public Iterator<Car> iterator() {
+//        return map.keySet().iterator();
+//    }
+
+    ///////////////////////////////////////////
+
+
+
     @Override
     public boolean add(Car car) {
 

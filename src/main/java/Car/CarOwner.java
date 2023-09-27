@@ -1,5 +1,7 @@
 package Car;
 
+import java.util.Objects;
+
 public class CarOwner {
     private int id;
     private String name;
@@ -33,5 +35,21 @@ public class CarOwner {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    //because we work with hashSets we need override methods equals() and hashcode()
+    //they will be created by inteliJ alt+insert
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        CarOwner carOwner = (CarOwner) object;
+        return id == carOwner.id && Objects.equals(name, carOwner.name) && Objects.equals(lastname, carOwner.lastname);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, lastname);
     }
 }
