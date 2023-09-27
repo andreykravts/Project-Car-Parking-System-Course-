@@ -1,11 +1,35 @@
 package Main;
 
-import java.util.Comparator;
-import java.util.Set;
-import java.util.TreeSet;
+import Car.CarOwner;
+import Car.Car;
+
+import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) {
+        //hash map may lose element if key is changeable object and after this element was added to collection his key was changed
+        //because his hashcode is depended on key
+        //conclusion: DONOT USE CHANGEABLE OBJECTS AS A KEY!!!
+        //use strings,numbers and etc
+        HashMap<CarOwner,Car> map = new HashMap<CarOwner, Car>();
+        CarOwner key = new CarOwner(1,"name","lastName");
+        map.put(key,new Car("Brand1",1));
+        key.setId(8);
+        for(CarOwner carOwner : map.keySet()){
+            //id changed!
+            System.out.println(carOwner.getId());
+        }
+        //car will be null
+        //because when we changed key to 8 we change hashcode
+        //collection is didnt know about changes of hashcode
+        //so we cant find anything into collection
+//        Car car = map.get(key);
+//        System.out.println(car.getBrand());
+
+
+
+
+
 
         //TREESET
         //Set<Integer> numbers = new TreeSet<>();
@@ -39,36 +63,36 @@ public class Main {
 //        }
 
 
-        Set<Integer> numbers = new TreeSet<>(new Comparator<Integer>() {
-            @Override
-            public int compare(Integer integer, Integer t1) {
-                //sort by number
-
-//                if (integer>t1){
-//                    return -1;
-//                }else if (integer<t1){
-//                    return 1;
-//                }else{
-//                    return 0;
-//                }
-
-                //call compare method from class integer
-                //sort ask
-                //return integer.compareTo(t1);
-
-                //sort desc
-                return -integer.compareTo(t1);
-
-
-
-        }});
-        for(int i=0; i<100;i++){
-            numbers.add((int)(Math.random()*10));
-        }
-        for(int number : numbers){
-            // ordering is automated
-            System.out.println(number);
-        }
+//        Set<Integer> numbers = new TreeSet<>(new Comparator<Integer>() {
+//            @Override
+//            public int compare(Integer integer, Integer t1) {
+//                //sort by number
+//
+////                if (integer>t1){
+////                    return -1;
+////                }else if (integer<t1){
+////                    return 1;
+////                }else{
+////                    return 0;
+////                }
+//
+//                //call compare method from class integer
+//                //sort ask
+//                //return integer.compareTo(t1);
+//
+//                //sort desc
+//                return -integer.compareTo(t1);
+//
+//
+//
+//        }});
+//        for(int i=0; i<100;i++){
+//            numbers.add((int)(Math.random()*10));
+//        }
+//        for(int number : numbers){
+//            // ordering is automated
+//            System.out.println(number);
+//        }
 
 
 
